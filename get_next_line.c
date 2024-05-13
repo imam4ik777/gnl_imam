@@ -1,13 +1,16 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: imatakis <@student.42abudhabi.ae>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/13 22:01:27 by imatakis          #+#    #+#             */
+/*   Updated: 2024/05/13 22:03:32 by imatakis         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-    strlen() function is used to find the length of a string.
-    strchr() function is used to find the first occurrence of a character in a given string.
-    strjoin() function is used to concatenate two strings.
-    save_line() function is used to save the line in a static variable.
-    print_line() function is used to print the line.
-    read_line() function is used to read the line from the file.
-*/
+#include "get_next_line.h"
 
 static char	*ft_saveline(char *tmp, int start)
 {
@@ -93,20 +96,20 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	char	*line;
-	int		fd;
+// int	main(void)
+// {
+// 	char *line;
+// 	int fd;
 
-	int i = 0;
-	fd = open("txt.txt", O_RDONLY);
-	line = get_next_line(fd);
-	while (line)
-	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
-}
+// 	int i = 0;
+// 	fd = open("txt.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// 	return (0);
+// }
