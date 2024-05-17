@@ -6,7 +6,7 @@
 /*   By: imatakis <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 22:01:27 by imatakis          #+#    #+#             */
-/*   Updated: 2024/05/13 22:03:32 by imatakis         ###   ########.fr       */
+/*   Updated: 2024/05/17 04:57:25 by imatakis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	*ft_readline(int fd, char *buf, char *tmp)
 	while (!ft_strchr(tmp, '\n'))
 	{
 		read_bytes = read(fd, buf, BUFFER_SIZE);
-		if (read_bytes == 0 && tmp[0] == '\0')
+		if (read_bytes <= 0 && tmp[0] == '\0')
 		{
 			free(tmp);
 			return (NULL);
@@ -75,41 +75,23 @@ char	*get_next_line(int fd)
 {
 	char		*buf;
 	char		*line;
-	static char	*temp;
+	static char	*tmp;
 	int			start_next;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	if (!temp)
-		temp = ft_strdup("");
+	if (!tmp)
+		tmp = ft_strdup("");
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	temp = ft_readline(fd, buf, temp);
+	tmp = ft_readline(fd, buf, tmp);
 	free(buf);
-	if (!temp)
+	if (!tmp)
 		return (NULL);
-	line = ft_printline(temp, &start_next);
-	if (!line && !temp)
+	line = ft_printline(tmp, &start_next);
+	if (!line && !tmp)
 		return (NULL);
-	temp = ft_saveline(temp, start_next);
+	tmp = ft_saveline(tmp, start_next);
 	return (line);
 }
-
-// int	main(void)
-// {
-// 	char *line;
-// 	int fd;
-
-// 	int i = 0;
-// 	fd = open("txt.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	while (line)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	close(fd);
-// 	return (0);
-// }

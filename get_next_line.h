@@ -6,13 +6,16 @@
 /*   By: imatakis <@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 22:03:51 by imatakis          #+#    #+#             */
-/*   Updated: 2024/05/13 22:03:52 by imatakis         ###   ########.fr       */
+/*   Updated: 2024/05/17 04:58:01 by imatakis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 100
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 # include <fcntl.h>
 # include <stdio.h>
