@@ -6,7 +6,7 @@
 /*   By: imatakis <imatakis@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 22:03:51 by imatakis          #+#    #+#             */
-/*   Updated: 2024/05/20 11:51:32 by imatakis         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:54:46 by imatakis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <unistd.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_strlen(const char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
